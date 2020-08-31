@@ -6,7 +6,9 @@ import { isValidProp } from "./Utils/isValidProp.js"
 // NOTE AppState is the object used to hold all the data from the app, this replaces _state = {}
 class AppState extends EventEmitter {
   next = ''
+  nextPlanet = ''
   previous = ''
+  previousPlanet = ''
   /** @type { Character[] } */
   characters = []
   /**@type { Planet[] } */

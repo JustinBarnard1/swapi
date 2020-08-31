@@ -13,7 +13,7 @@ export default class Planet {
         return /*html*/`
     <div class='col-3'>
       <div class="card p-2 value">
-          ${this.name} - ${this.population}
+          ${this.name} - pop. ${this.population} - size: ${this.diameter}
       </div>
     </div>
     `

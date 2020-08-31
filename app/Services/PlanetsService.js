@@ -8,7 +8,7 @@ class PlanetsService {
     getPlanets() {
         api.get('planets')
             .then(res => {
-                ProxyState.next = res.data.next
+                ProxyState.nextPlanet = res.data.next
                 ProxyState.planets = res.data.results.map(p => new Planet(p))
             })
             .catch(error => {
@@ -17,11 +17,11 @@ class PlanetsService {
     }
 
     nextPlanet() {
-        if (ProxyState.next) {
-            api.get(ProxyState.next)
+        if (ProxyState.nextPlanet) {
+            api.get(ProxyState.nextPlanet)
                 .then(res => {
-                    ProxyState.previous = res.data.previous
-                    ProxyState.next = res.data.next
+                    ProxyState.previousPlanet = res.data.previous
+                    ProxyState.nextPlanet = res.data.next
                     ProxyState.planets = res.data.results.map(p => new Planet(p))
                 })
                 .catch(error => {
@@ -32,11 +32,11 @@ class PlanetsService {
 
 
     previousPlanet() {
-        if (ProxyState.previous) {
-            api.get(ProxyState.previous)
+        if (ProxyState.previousPlanet) {
+            api.get(ProxyState.previousPlanet)
                 .then(res => {
-                    ProxyState.previous = res.data.previous
-                    ProxyState.next = res.data.next
+                    ProxyState.previousPlanet = res.data.previous
+                    ProxyState.nextPlanet = res.data.next
                     ProxyState.planets = res.data.results.map(p => new Planet(p))
                 })
                 .catch(error => {
