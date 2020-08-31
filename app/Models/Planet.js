@@ -1,5 +1,5 @@
 export default class Planet {
-    constructor({ name, climate, terrain, population, diameter, bgColor }) {
+    constructor({ name, climate, terrain, population, diameter }) {
         this.name = name
         this.climate = climate
         this.terrain = terrain
